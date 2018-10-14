@@ -34,6 +34,7 @@ public class calculator extends Applet implements ActionListener, TextListener
   rem=new Button("%");
   npr=new Button("npr");
   ncr=new Button("ncr");
+  fact=new Button("fact");
   eq=new Button("=");
   cl=new Button("Clear");
   
@@ -62,6 +63,7 @@ public class calculator extends Applet implements ActionListener, TextListener
   add(cl);
   add(npr);
   add(ncr);
+  add(fact);
   
   b1.addActionListener(this);
   b2.addActionListener(this);
@@ -80,6 +82,7 @@ public class calculator extends Applet implements ActionListener, TextListener
   rem.addActionListener(this);
   npr.addActionListener(this);
   ncr.addActionListener(this);
+  fact.addActionListener(this);
   eq.addActionListener(this);
   cl.addActionListener(this);
   paint();
@@ -168,7 +171,8 @@ s.equals("9")||s.equals("0"))
 	   n=1;
 	   r=1;
    }
-   if(s3.equals("ncr")){
+   if(s3.equals("ncr"))
+   {
 	   for(int i=1;i<=a;i++){
 		   n=n*i;
 	   }
@@ -178,13 +182,21 @@ s.equals("9")||s.equals("0"))
 	   for(int i=1;i<=b;i++){
 		   nr=nr*i;
 	   }
-	   
+
 	   c=n/(nr*r);
 	   n=1;
 	   r=1;
 	nr=1;
    }
-	   
+   if(s3.equals("fact"))
+	{	
+		for(i=1;i<=a;i++)
+               	{	
+			fact=fact*i;
+		}	
+}
+
+		
    t1.setText(String.valueOf(c));
   }
   if(s.equals("Clear"))
