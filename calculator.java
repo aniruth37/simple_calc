@@ -10,7 +10,7 @@ public class calculator extends Applet implements ActionListener, TextListener
 {
  String s,s1,s2,s3,s4;
  Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0;
- Button add,sub,eq,cl,mul,div,rem,npr,ncr;
+ Button add,sub,eq,cl,mul,div,rem,npr,ncr,f=1;
  TextField t1;
  int a,b,c,n=1,r=1,nr=1;
  
@@ -192,7 +192,7 @@ s.equals("9")||s.equals("0"))
 	{	
 		for(i=1;i<=a;i++)
                	{	
-			fact=fact*i;
+			f=f*i;
 		}	
 }
 
