@@ -64,7 +64,6 @@ public class calculator extends Applet implements ActionListener, TextListener
   add(npr);
   add(ncr);
   add(fact);
-  add(fib);
   
   b1.addActionListener(this);
   b2.addActionListener(this);
