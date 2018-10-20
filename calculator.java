@@ -124,10 +124,6 @@ s.equals("9")||s.equals("0"))
   if(s.equals("/"))
   {
      s2=t1.getText();
-     if(Integer.parseInt(s2) == 0){
-	System.out.println("Error, attempt to divide by 0. Will instead divide by 1.";
-     }
-     s2 = "1";
      t1.setText("");
      s3="/";
   }
@@ -161,7 +157,11 @@ s.equals("9")||s.equals("0"))
    if(s3.equals("*"))
 	    c=a*b;
    if(s3.equals("/"))
-	    c=a/b;
+    if(b == 0){
+	System.out.println("Error, attempt to divide by 0. Will instead divide by 1.";
+        b = 1;
+    }
+    c=a/b;
    if(s3.equals("%"))
 	    c=a%b;
    if(s3.equals("npr")){
