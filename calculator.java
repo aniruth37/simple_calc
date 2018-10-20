@@ -5,12 +5,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.TextEvent;
 import java.awt.event.TextListener;;
 /* <applet code = "calculator" width = 300 height = 300> </applet> */
-public class calculator extends Applet implements ActionListener, TextListener
+public class calc extends Applet implements ActionListener, TextListener
 
 {
  String s,s1,s2,s3,s4;
  Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0;
- Button add,sub,eq,cl,mul,div,rem,npr,ncr;
+ Button add,sub,eq,cl,mul,div,rem,npr,ncr,fact,square;
  TextField t1;
  int a,b,c,n=1,r=1,nr=1;
  
@@ -35,6 +35,7 @@ public class calculator extends Applet implements ActionListener, TextListener
   npr=new Button("npr");
   ncr=new Button("ncr");
   fact=new Button("fact");
+  square=new Button("square");
   eq=new Button("=");
   cl=new Button("Clear");
   
@@ -64,6 +65,7 @@ public class calculator extends Applet implements ActionListener, TextListener
   add(npr);
   add(ncr);
   add(fact);
+  add(square);
   
   b1.addActionListener(this);
   b2.addActionListener(this);
@@ -83,6 +85,7 @@ public class calculator extends Applet implements ActionListener, TextListener
   npr.addActionListener(this);
   ncr.addActionListener(this);
   fact.addActionListener(this);
+  square.addActionListener(this);
   eq.addActionListener(this);
   cl.addActionListener(this);
   paint();
@@ -145,11 +148,22 @@ s.equals("9")||s.equals("0"))
      t1.setText("");
      s3="ncr";
   }
+  if(s.equals("fact")){
+	  s2=t1.getText();
+	  t1.setText("");
+	  s3="fact";
+  }
+  if(s.equals("square")){
+	  s2=t1.getText();
+	  t1.setText("");
+	  s3="square";
+  }
   if(s.equals("="))
   {
    s4=t1.getText();
    a=Integer.parseInt(s2);
-   b=Integer.parseInt(s4);
+   if(!s3.equals("fact")&&!s3.equals("square"))
+	   b=Integer.parseInt(s4);
    if(s3.equals("+"))
     c=a+b;
    if(s3.equals("-"))
@@ -190,11 +204,16 @@ s.equals("9")||s.equals("0"))
    }
    if(s3.equals("fact"))
 	{	
-		for(i=1;i<=a;i++)
-               	{	
-			fact=fact*i;
-		}	
-}
+	   int h=1;
+	   for(int i=1;i<=a;i++){	
+			h=h*i;
+		}
+		c=h;
+	}
+   if(s3.equals("square"))
+	{	
+		c=a*a;
+	}   
 
 		
    t1.setText(String.valueOf(c));
