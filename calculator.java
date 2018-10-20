@@ -64,6 +64,7 @@ public class calculator extends Applet implements ActionListener, TextListener
   add(npr);
   add(ncr);
   add(fact);
+  add(fib);
   
   b1.addActionListener(this);
   b2.addActionListener(this);
@@ -124,6 +125,9 @@ s.equals("9")||s.equals("0"))
   if(s.equals("/"))
   {
      s2=t1.getText();
+     if(Integer.parseInt(s2) == 0){
+	System.out.println("Error, attempt to divide by 0. Will instead divide by 1. \n";
+     }
      t1.setText("");
      s3="/";
   }
@@ -190,7 +194,7 @@ s.equals("9")||s.equals("0"))
    }
    if(s3.equals("fact"))
 	{	
-		for(i=1;i<=a;i++)
+		for(int i=1;i<=a;i++)
                	{	
 			fact=fact*i;
 		}	
