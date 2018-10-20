@@ -10,7 +10,7 @@ public class calculator extends Applet implements ActionListener, TextListener
 {
     String s,s1,s2,s3,s4;
     Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0;
-    Button add,sub,eq,cl,mul,div,rem,npr,ncr,fact;
+    Button add,sub,eq,cl,mul,div,rem,sin,npr,ncr,fact;
     TextField t1;
     int a,b,c,n=1,r=1,nr=1;
 
@@ -32,6 +32,7 @@ public class calculator extends Applet implements ActionListener, TextListener
         mul=new Button("*");
         div=new Button("/");
         rem=new Button("%");
+		sin=new Button("sin");
         npr=new Button("npr");
         ncr=new Button("ncr");
         fact=new Button("fact");
@@ -59,6 +60,7 @@ public class calculator extends Applet implements ActionListener, TextListener
         add(mul);
         add(div);
         add(rem);
+		add(sin);
         add(eq);
         add(cl);
         add(npr);
@@ -80,6 +82,7 @@ public class calculator extends Applet implements ActionListener, TextListener
         mul.addActionListener(this);
         div.addActionListener(this);
         rem.addActionListener(this);
+		sin.addActionListener(this);
         npr.addActionListener(this);
         ncr.addActionListener(this);
         fact.addActionListener(this);
@@ -133,6 +136,12 @@ public class calculator extends Applet implements ActionListener, TextListener
             t1.setText("");
             s3="%";
         }
+		if(s.equals("sin"))
+        {
+            s2=t1.getText();
+            t1.setText("");
+            s3="sin";
+        }
         if(s.equals("npr"))
         {
             s2=t1.getText();
@@ -160,6 +169,9 @@ public class calculator extends Applet implements ActionListener, TextListener
                 c=a/b;
             if(s3.equals("%"))
                 c=a%b;
+			if(s3.equals("sin")){
+				c=math.sin(a);
+			}
             if(s3.equals("npr")){
                 for(int i=1;i<=a;i++){
                     n=n*i;
