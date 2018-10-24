@@ -157,7 +157,11 @@ s.equals("9")||s.equals("0"))
    if(s3.equals("*"))
 	    c=a*b;
    if(s3.equals("/"))
-	    c=a/b;
+    if(b == 0){
+	System.out.println("Error, attempt to divide by 0. Will instead divide by 1.";
+        b = 1;
+    }
+    c=a/b;
    if(s3.equals("%"))
 	    c=a%b;
    if(s3.equals("npr")){
@@ -190,7 +194,7 @@ s.equals("9")||s.equals("0"))
    }
    if(s3.equals("fact"))
 	{	
-		for(i=1;i<=a;i++)
+		for(int i=1;i<=a;i++)
                	{	
 			fact=fact*i;
 		}	
